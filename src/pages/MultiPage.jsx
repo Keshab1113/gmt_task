@@ -55,12 +55,11 @@ const MultiPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center sm:justify-center justify-end h-screen bg-gray-100 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-full scale-x-[-1]" style={{
-                backgroundImage: `url(${('/success-icon.png')})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}></div>
+        <div className="flex flex-col items-center sm:justify-center justify-end h-screen bg-gray-100 overflow-hidden " style={{
+            backgroundImage: `url(${('/success-icon.png')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+        }}>
             <div className="sm:w-full w-[80%] max-w-md p-8 space-y-6 bg-orange-500 shadow-lg rounded-3xl z-10 mb-10">
                 {renderPageContent()}
                 <div className="flex justify-center mt-4">
