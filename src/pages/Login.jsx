@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -6,7 +5,7 @@ import { auth } from '../firebase';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import Success from '../components/Success';
-import backgroundImg from '/success-icon.png'; // Adjust the path as necessary
+import backgroundImg from '/success-icon.png';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -38,14 +37,14 @@ const Login = () => {
 
     return (
         <div
-            className="flex items-center justify-center min-h-screen bg-gray-100"
+            className="flex items-center justify-center h-screen overflow-hidden bg-gray-100"
             style={{
                 backgroundImage: `url(${backgroundImg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
         >
-            <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg sm:rounded-xl h-screen sm:h-full">
+            <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg sm:rounded-xl h-screen overflow-hidden sm:h-full">
                 <h2 className="text-3xl font-bold text-start">Login to your account</h2>
                 <p className="text-start text-gray-600">Please sign in to your account</p>
                 <form onSubmit={handleLogin} className="space-y-6">

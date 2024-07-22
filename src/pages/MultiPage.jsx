@@ -1,7 +1,6 @@
-// src/components/MultiPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase'; // Assuming you have your firebase setup
+import { auth } from '../firebase';
 
 const MultiPage = () => {
     const [page, setPage] = useState(1);
@@ -11,7 +10,6 @@ const MultiPage = () => {
         if (page < 3) {
             setPage(page + 1);
         } else {
-            // Check if user is logged in
             if (auth.currentUser) {
                 navigate('/tracking');
             } else {
@@ -21,7 +19,6 @@ const MultiPage = () => {
     };
 
     const handleSkip = () => {
-        // Check if user is logged in
         if (auth.currentUser) {
             navigate('/tracking');
         } else {
@@ -58,13 +55,13 @@ const MultiPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center sm:justify-center justify-end min-h-screen bg-gray-100 pb-10">
+        <div className="flex flex-col items-center sm:justify-center justify-end h-screen bg-gray-100 overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-full scale-x-[-1]" style={{
                 backgroundImage: `url(${('/success-icon.png')})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}></div>
-            <div className="sm:w-full w-[80%] max-w-md p-8 space-y-6 bg-orange-500 shadow-lg rounded-3xl z-10">
+            <div className="sm:w-full w-[80%] max-w-md p-8 space-y-6 bg-orange-500 shadow-lg rounded-3xl z-10 mb-10">
                 {renderPageContent()}
                 <div className="flex justify-center mt-4">
                     <div className="space-x-2">
