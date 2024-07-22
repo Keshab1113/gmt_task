@@ -23,6 +23,12 @@ const Header = () => {
             <h1 className="text-xl sm:text-2xl font-bold">Tracking Page</h1>
             <div className="space-x-2 sm:space-x-4 mt-2 sm:mt-0">
                 <button
+                    onClick={() => { navigate("/")}}
+                    className="bg-white text-orange-500 px-3 sm:px-4 py-1 sm:py-2 rounded shadow hover:bg-gray-100"
+                >
+                    Home
+                </button>
+                <button
                     onClick={goToProfile}
                     className="bg-white text-orange-500 px-3 sm:px-4 py-1 sm:py-2 rounded shadow hover:bg-gray-100"
                 >

@@ -2,6 +2,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
+import Header from "../components/Header"
 
 const Profile = () => {
     const [user] = useAuthState(auth);
@@ -11,7 +12,10 @@ const Profile = () => {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className='h-screen overflow-hidden'>
+            <Header/>
+        
+        <div className="flex items-center justify-center h-full bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-xl">
                 <h2 className="text-3xl font-bold text-center">Profile</h2>
                 <div className="space-y-4">
@@ -30,6 +34,7 @@ const Profile = () => {
                         </div>
                     )}
                 </div>
+            </div>
             </div>
         </div>
     );

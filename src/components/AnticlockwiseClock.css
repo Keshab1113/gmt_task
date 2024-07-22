@@ -1,36 +1,33 @@
-/* src/components/AnticlockwiseClock.css */
 .clock {
     position: relative;
 }
 
 .hand {
+    width: 50%;
+    height: 2px;
+    background-color: black;
     position: absolute;
+    top: 50%;
     left: 50%;
-    transform-origin: bottom;
-    transform: translateX(-50%);
+    transform-origin: 0% 0%;
+    transition: transform 0.05s linear;
 }
 
 .hour {
-    width: 4px;
-    height: 30%;
-    bottom: 50%;
-    background-color: #000;
+    height: 4px;
+    background-color: black;
 }
 
 .minute {
-    width: 3px;
-    height: 40%;
-    bottom: 50%;
-    background-color: #000;
+    background-color: black;
 }
 
 .second {
-    width: 2px;
-    height: 45%;
-    bottom: 50%;
+    background-color: red;
 }
 
 .center {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

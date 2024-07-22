@@ -1,4 +1,3 @@
-// src/components/AnticlockwiseClock.js
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './AnticlockwiseClock.css';
@@ -11,14 +10,22 @@ const AnticlockwiseClock = () => {
 
     const [currentTime, setCurrentTime] = useState(new Date());
     const [speed, setSpeed] = useState(parseFloat(initialSpeed));
+    const [endTime, setEndTime] = useState(new Date(new Date().getTime() - 120 * 60 * 1000)); // 120 minutes earlier
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setCurrentTime(prevTime => new Date(prevTime.getTime() - 1000 * speed));
+            setCurrentTime(prevTime => {
+                const newTime = new Date(prevTime.getTime() - 1000 * speed);
+                if (newTime <= endTime) {
+                    clearInterval(timer);
+                    return endTime;
+                }
+                return newTime;
+            });
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [speed]);
+    }, [speed, endTime]);
 
     const handleSpeedChange = (e) => {
         setSpeed(parseFloat(e.target.value));
@@ -39,10 +46,11 @@ const AnticlockwiseClock = () => {
         const minuteDegrees = minutes * 6;
         const secondDegrees = seconds * 6;
 
+        // Anticlockwise rotation
         return {
-            hourStyle: { transform: `rotateZ(${-hourDegrees}deg)` },
-            minuteStyle: { transform: `rotateZ(${-minuteDegrees}deg)` },
-            secondStyle: { transform: `rotateZ(${-secondDegrees}deg)` },
+            hourStyle: { transform: `rotate(${hourDegrees}deg)` },
+            minuteStyle: { transform: `rotate(${minuteDegrees}deg)` },
+            secondStyle: { transform: `rotate(${secondDegrees}deg)` },
         };
     };
 
